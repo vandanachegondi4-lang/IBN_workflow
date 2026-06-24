@@ -1,0 +1,1032 @@
+{
+  "system_mgmt": {
+    "hostname": {
+      "allow": [
+        "{action} hostname {hostname} on {device}"
+      ],
+      "deny": [
+        "{action} hostname change on {device}"
+      ],
+      "get": [
+        "{action} hostname on {device}"
+      ]
+    },
+    "mgmt_ip": {
+      "allow": [
+        "{action} management ip {ip_address} on {device}",
+        "{action} management ip {ip_address} with mask {netmask} on {device}"
+      ],
+      "deny": [
+        "{action} management ip on {device}"
+      ],
+      "get": [
+        "{action} management ip configuration on {device}"
+      ]
+    },
+    "gateway": {
+      "allow": [
+        "{action} default gateway {gateway} on {device}"
+      ],
+      "deny": [
+        "{action} default gateway on {device}"
+      ],
+      "get": [
+        "{action} default gateway configuration on {device}"
+      ]
+    },
+    "timezone": {
+      "allow": [
+        "{action} timezone {timezone} on {device}"
+      ],
+      "deny": [
+        "{action} timezone configuration on {device}"
+      ],
+      "get": [
+        "{action} timezone configuration on {device}"
+      ]
+    },
+    "service": {
+      "allow": [
+        "{action} {service_name} service on {device}"
+      ],
+      "deny": [
+        "{action} {service_name} service on {device}"
+      ],
+      "get": [
+        "{action} {service_name} service status on {device}"
+      ]
+    }
+  },
+
+  "user_mgmt": {
+    "create_user": {
+      "allow": [
+        "{action} user {username} with role {role} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "delete_user": {
+      "allow": [],
+      "deny": [
+        "{action} user {username} on {device}"
+      ],
+      "get": []
+    },
+    "password": {
+      "allow": [
+        "{action} password for user {username} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "role": {
+      "allow": [
+        "{action} role {role} for user {username} on {device}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} roles on {device}"
+      ]
+    }
+  },
+
+  "interface": {
+    "admin_state": {
+      "allow": [
+        "{action} interface on {device} port {port}"
+      ],
+      "deny": [
+        "{action} interface on {device} port {port}"
+      ],
+      "get": [
+        "{action} interface status on {device} port {port}"
+      ]
+    },
+    "speed": {
+      "allow": [
+        "{action} speed {speed} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} speed on {device} port {port}"
+      ]
+    },
+    "duplex": {
+      "allow": [
+        "{action} duplex {operating_mode} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} duplex mode on {device} port {port}"
+      ]
+    },
+    "mtu": {
+      "allow": [
+        "{action} mtu {mtu} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} mtu on {device} port {port}"
+      ]
+    },
+    "flow_control": {
+      "allow": [
+        "{action} flow control on {device} port {port}"
+      ],
+      "deny": [
+        "{action} flow control on {device} port {port}"
+      ],
+      "get": [
+        "{action} flow control status on {device} port {port}"
+      ]
+    },
+    "description": {
+      "allow": [
+        "{action} description {description} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} description on {device} port {port}"
+      ]
+    }
+  },
+
+  "vlan": {
+    "create": {
+      "allow": [
+        "{action} vlan {vlan_id} named {vlan_name} on {device}",
+        "{action} vlan {vlan_id} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "delete": {
+      "allow": [],
+      "deny": [
+        "{action} vlan {vlan_id} on {device}"
+      ],
+      "get": []
+    },
+    "assign_port": {
+      "allow": [
+        "{action} vlan {vlan_id} on {device} port {port}",
+        "{action} vlan {vlan_id} on {device} port {port} as {tagging_mode}"
+      ],
+      "deny": [
+        "{action} vlan {vlan_id} membership on {device} port {port}"
+      ],
+      "get": [
+        "{action} vlan membership on {device} port {port}"
+      ]
+    },
+    "tagging_mode": {
+      "allow": [
+        "{action} vlan {vlan_id} on {device} port {port} as {tagging_mode}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} tagging mode on {device} port {port}"
+      ]
+    },
+    "pvid": {
+      "allow": [
+        "{action} pvid {vlan_id} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} pvid on {device} port {port}"
+      ]
+    }
+  },
+
+  "mac_table": {
+    "static_entry": {
+      "allow": [
+        "{action} static mac {macaddress} on {device} vlan {vlan_id} port {port}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "delete_entry": {
+      "allow": [],
+      "deny": [
+        "{action} static mac {macaddress} on {device} vlan {vlan_id} port {port}"
+      ],
+      "get": []
+    },
+    "aging_time": {
+      "allow": [
+        "{action} mac aging time {aging_time} on {device}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} mac aging time on {device}"
+      ]
+    }
+  },
+
+  "port_security": {
+    "enable": {
+      "allow": [
+        "{action} port security on {device} port {port}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "disable": {
+      "allow": [],
+      "deny": [
+        "{action} port security on {device} port {port}"
+      ],
+      "get": []
+    },
+    "mac_limit": {
+      "allow": [
+        "{action} port security mac limit {limit} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} port security mac limit on {device} port {port}"
+      ]
+    },
+    "violation_action": {
+      "allow": [
+        "{action} port security violation {violation_action} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} port security violation action on {device} port {port}"
+      ]
+    }
+  },
+
+  "qos": {
+    "queue": {
+      "allow": [
+        "{action} qos queue {qnumber} with {min_bandwidth} on {device}",
+        "{action} qos queue {qnumber} on {device}"
+      ],
+      "deny": [
+        "{action} qos queue {qnumber} on {device}"
+      ],
+      "get": [
+        "{action} qos queue information on {device}"
+      ]
+    },
+    "dscp_map": {
+      "allow": [
+        "{action} dscp {dscp} to queue {qnumber} on {device}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} dscp to queue mapping on {device}"
+      ]
+    },
+    "rate_limit": {
+      "allow": [
+        "{action} rate limit {rate} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} rate limit on {device} port {port}"
+      ]
+    },
+    "shaping": {
+      "allow": [
+        "{action} traffic shaping {rate} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} traffic shaping on {device} port {port}"
+      ]
+    },
+    "policing": {
+      "allow": [
+        "{action} policing {rate} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} policing on {device} port {port}"
+      ]
+    }
+  },
+
+  "acl": {
+    "create_rule": {
+      "allow": [
+        "{action} access control list {name} from {source} to {destination}",
+        "{action} acl rule {name} from {source} to {destination} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "delete_rule": {
+      "allow": [],
+      "deny": [
+        "{action} acl rule {name} on {device}"
+      ],
+      "get": []
+    },
+    "apply_acl": {
+      "allow": [
+        "{action} acl {name} on {device} port {port}"
+      ],
+      "deny": [
+        "{action} acl {name} on {device} port {port}"
+      ],
+      "get": [
+        "{action} acl {name} usage on {device}"
+      ]
+    }
+  },
+
+  "traffic_control": {
+    "storm_control": {
+      "allow": [
+        "{action} storm control {rate} on {device} port {port}"
+      ],
+      "deny": [
+        "{action} storm control on {device} port {port}"
+      ],
+      "get": [
+        "{action} storm control on {device} port {port}"
+      ]
+    },
+    "null_scan_filter": {
+      "allow": [
+        "{action} trafficcontrol with activate {null_scan_filter} function on {device}"
+      ],
+      "deny": [
+        "{action} trafficcontrol with activate {null_scan_filter} function mode on {device}"
+      ],
+      "get": [
+        "{action} trafficcontrol configuration on {device}"
+      ]
+    },
+    "broadcast_limit": {
+      "allow": [
+        "{action} broadcast limit {rate} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} broadcast limit on {device} port {port}"
+      ]
+    }
+  },
+
+  "lldp": {
+    "enable": {
+      "allow": [
+        "{action} lldp on {device}",
+        "{action} lldp on {device} port {port}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "disable": {
+      "allow": [],
+      "deny": [
+        "{action} lldp on {device}",
+        "{action} lldp on {device} port {port}"
+      ],
+      "get": []
+    },
+    "tlv": {
+      "allow": [
+        "{action} lldp tlv {tlv_type} on {device}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} lldp tlv configuration on {device}"
+      ]
+    }
+  },
+
+  "lldp_med": {
+    "enable": {
+      "allow": [
+        "{action} lldp-med on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "disable": {
+      "allow": [],
+      "deny": [
+        "{action} lldp-med on {device}"
+      ],
+      "get": []
+    },
+    "policy": {
+      "allow": [
+        "{action} lldp-med policy {policy_name} on {device}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} lldp-med policy on {device}"
+      ]
+    }
+  },
+
+  "spanning_tree": {
+    "enable": {
+      "allow": [
+        "{action} spanning tree on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "disable": {
+      "allow": [],
+      "deny": [
+        "{action} spanning tree on {device}"
+      ],
+      "get": []
+    },
+    "priority": {
+      "allow": [
+        "{action} spanning tree priority {priority} on {device}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} spanning tree priority on {device}"
+      ]
+    }
+  },
+
+  "lacp": {
+    "create_lag": {
+      "allow": [
+        "{action} lag {lag_id} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "delete_lag": {
+      "allow": [],
+      "deny": [
+        "{action} lag {lag_id} on {device}"
+      ],
+      "get": []
+    },
+    "add_port": {
+      "allow": [
+        "{action} lag {lag_id} add port {port} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "remove_port": {
+      "allow": [],
+      "deny": [
+        "{action} lag {lag_id} remove port {port} on {device}"
+      ],
+      "get": []
+    }
+  },
+
+  "mrp": {
+    "enable": {
+      "allow": [
+        "{action} mrp ring {ring_id} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "disable": {
+      "allow": [],
+      "deny": [
+        "{action} mrp ring {ring_id} on {device}"
+      ],
+      "get": []
+    },
+    "role": {
+      "allow": [
+        "{action} mrp ring {ring_id} role {role} on {device}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} mrp ring {ring_id} role on {device}"
+      ]
+    }
+  },
+
+  "hsr_prp": {
+    "enable": {
+      "allow": [
+        "{action} {protocol} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "disable": {
+      "allow": [],
+      "deny": [
+        "{action} {protocol} on {device}"
+      ],
+      "get": []
+    },
+    "supervision": {
+      "allow": [
+        "{action} {protocol} supervision on {device}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} {protocol} supervision on {device}"
+      ]
+    }
+  },
+
+  "routing": {
+    "static_route": {
+      "allow": [
+        "{action} static route {destination} {netmask} via {gateway} on {device}"
+      ],
+      "deny": [
+        "{action} static route {destination} {netmask} on {device}"
+      ],
+      "get": [
+        "{action} static routes on {device}"
+      ]
+    },
+    "default_route": {
+      "allow": [
+        "{action} default route via {gateway} on {device}"
+      ],
+      "deny": [
+        "{action} default route on {device}"
+      ],
+      "get": [
+        "{action} default route on {device}"
+      ]
+    },
+    "arp": {
+      "allow": [
+        "{action} static arp {ip_address} {macaddress} on {device}"
+      ],
+      "deny": [
+        "{action} static arp {ip_address} on {device}"
+      ],
+      "get": [
+        "{action} arp table on {device}"
+      ]
+    }
+  },
+
+  "dhcp": {
+    "server": {
+      "allow": [
+        "{action} dhcp server on {device}",
+        "{action} dhcp pool {pool_name} on {device}"
+      ],
+      "deny": [
+        "{action} dhcp server on {device}"
+      ],
+      "get": [
+        "{action} dhcp server configuration on {device}"
+      ]
+    },
+    "relay": {
+      "allow": [
+        "{action} dhcp relay to {server_ip} on {device}"
+      ],
+      "deny": [
+        "{action} dhcp relay on {device}"
+      ],
+      "get": [
+        "{action} dhcp relay configuration on {device}"
+      ]
+    },
+    "snooping": {
+      "allow": [
+        "{action} dhcp snooping on {device}"
+      ],
+      "deny": [
+        "{action} dhcp snooping on {device}"
+      ],
+      "get": [
+        "{action} dhcp snooping table on {device}"
+      ]
+    }
+  },
+
+  "dns": {
+    "add_server": {
+      "allow": [
+        "{action} dns server {source} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "remove_server": {
+      "allow": [],
+      "deny": [
+        "{action} dns server {source} on {device}"
+      ],
+      "get": []
+    }
+  },
+
+  "sntp": {
+    "add_server": {
+      "allow": [
+        "{action} sntp server {source} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "remove_server": {
+      "allow": [],
+      "deny": [
+        "{action} sntp server {source} on {device}"
+      ],
+      "get": []
+    }
+  },
+
+  "syslog": {
+    "add_server": {
+      "allow": [
+        "{action} syslog server {source} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "remove_server": {
+      "allow": [],
+      "deny": [
+        "{action} syslog server {source} on {device}"
+      ],
+      "get": []
+    },
+    "forwarding": {
+      "allow": [
+        "{action} syslog forwarding on {device} port {port}"
+      ],
+      "deny": [
+        "{action} syslog forwarding on {device} port {port}"
+      ],
+      "get": [
+        "{action} syslog forwarding status on {device} port {port}"
+      ]
+    }
+  },
+
+  "snmp": {
+    "community": {
+      "allow": [
+        "{action} snmp community {community} on {device}"
+      ],
+      "deny": [
+        "{action} snmp community {community} on {device}"
+      ],
+      "get": [
+        "{action} snmp communities on {device}"
+      ]
+    },
+    "trap": {
+      "allow": [
+        "{action} snmp trap receiver {destination} on {device}"
+      ],
+      "deny": [
+        "{action} snmp trap receiver {destination} on {device}"
+      ],
+      "get": [
+        "{action} snmp trap receivers on {device}"
+      ]
+    },
+    "enable": {
+      "allow": [
+        "{action} snmp on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "disable": {
+      "allow": [],
+      "deny": [
+        "{action} snmp on {device}"
+      ],
+      "get": []
+    }
+  },
+
+  "igmp_mld": {
+    "enable": {
+      "allow": [
+        "{action} igmp snooping on {device}",
+        "{action} mld snooping on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "disable": {
+      "allow": [],
+      "deny": [
+        "{action} igmp snooping on {device}",
+        "{action} mld snooping on {device}"
+      ],
+      "get": []
+    },
+    "querier": {
+      "allow": [
+        "{action} igmp querier on {device}"
+      ],
+      "deny": [
+        "{action} igmp querier on {device}"
+      ],
+      "get": [
+        "{action} igmp querier status on {device}"
+      ]
+    }
+  },
+
+  "dhcp_snooping": {
+    "enable": {
+      "allow": [
+        "{action} dhcp snooping on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "disable": {
+      "allow": [],
+      "deny": [
+        "{action} dhcp snooping on {device}"
+      ],
+      "get": []
+    },
+    "trust_port": {
+      "allow": [
+        "{action} dhcp snooping trust on {device} port {port}"
+      ],
+      "deny": [
+        "{action} dhcp snooping trust on {device} port {port}"
+      ],
+      "get": [
+        "{action} dhcp snooping trust ports on {device}"
+      ]
+    }
+  },
+
+  "arp_inspection": {
+    "enable": {
+      "allow": [
+        "{action} arp inspection on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "disable": {
+      "allow": [],
+      "deny": [
+        "{action} arp inspection on {device}"
+      ],
+      "get": []
+    },
+    "trust_port": {
+      "allow": [
+        "{action} arp inspection trust on {device} port {port}"
+      ],
+      "deny": [
+        "{action} arp inspection trust on {device} port {port}"
+      ],
+      "get": [
+        "{action} arp inspection trust ports on {device}"
+      ]
+    }
+  },
+
+  "industrial_protocols": {
+    "profinet": {
+      "allow": [
+        "{action} profinet on {device}"
+      ],
+      "deny": [
+        "{action} profinet on {device}"
+      ],
+      "get": [
+        "{action} profinet status on {device}"
+      ]
+    },
+    "modbus": {
+      "allow": [
+        "{action} modbus on {device}"
+      ],
+      "deny": [
+        "{action} modbus on {device}"
+      ],
+      "get": [
+        "{action} modbus status on {device}"
+      ]
+    },
+    "goose": {
+      "allow": [
+        "{action} goose on {device}"
+      ],
+      "deny": [
+        "{action} goose on {device}"
+      ],
+      "get": [
+        "{action} goose status on {device}"
+      ]
+    },
+    "dcp": {
+      "allow": [
+        "{action} dcp on {device}"
+      ],
+      "deny": [
+        "{action} dcp on {device}"
+      ],
+      "get": [
+        "{action} dcp status on {device}"
+      ]
+    }
+  },
+
+  "monitoring": {
+    "port_mirror": {
+      "allow": [
+        "{action} port mirror from {source_port} to {destination_port} on {device}"
+      ],
+      "deny": [
+        "{action} port mirror on {device}"
+      ],
+      "get": [
+        "{action} port mirror configuration on {device}"
+      ]
+    },
+    "counters": {
+      "allow": [],
+      "deny": [],
+      "get": [
+        "{action} interface counters on {device} port {port}",
+        "{action} traffic statistics on {device}"
+      ]
+    },
+    "logs": {
+      "allow": [],
+      "deny": [],
+      "get": [
+        "{action} system logs on {device}"
+      ]
+    }
+  },
+
+  "poe": {
+    "enable": {
+      "allow": [
+        "{action} poe on {device} port {port}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "disable": {
+      "allow": [],
+      "deny": [
+        "{action} poe on {device} port {port}"
+      ],
+      "get": []
+    },
+    "power_limit": {
+      "allow": [
+        "{action} poe power limit {power} on {device} port {port}"
+      ],
+      "deny": [],
+      "get": [
+        "{action} poe power limit on {device} port {port}"
+      ]
+    }
+  },
+
+  "firmware_file_mgmt": {
+    "upload": {
+      "allow": [
+        "{action} firmware upload to {device} from {source}",
+        "{action} configuration upload to {device} via {protocol}",
+        "{action} upload file {filename} to {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "activate": {
+      "allow": [
+        "{action} firmware image {image_name} on {device}",
+        "{action} activate firmware on {device}",
+        "{action} switch boot image to {image_name} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "dual_image": {
+      "allow": [
+        "{action} primary image on {device}",
+        "{action} secondary image on {device}",
+        "{action} set boot preference to {image_slot} on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "backup": {
+      "allow": [
+        "{action} backup configuration from {device} to {destination}",
+        "{action} save running config on {device}",
+        "{action} export configuration from {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "restore": {
+      "allow": [
+        "{action} restore configuration on {device} from {source}",
+        "{action} import configuration file {filename} to {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "usb_ops": {
+      "allow": [
+        "{action} usb file {filename} on {device}",
+        "{action} copy config to usb on {device}",
+        "{action} read file from usb on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "get": {
+      "allow": [],
+      "deny": [],
+      "get": [
+        "{action} firmware version on {device}",
+        "{action} firmware image list on {device}",
+        "{action} configuration files on {device}"
+      ]
+    }
+  },
+
+  "usb_sd": {
+    "mount": {
+      "allow": [
+        "{action} mount usb on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "unmount": {
+      "allow": [],
+      "deny": [
+        "{action} mount usb on {device}"
+      ],
+      "get": []
+    },
+    "copy": {
+      "allow": [
+        "{action} copy {filename} to usb on {device}",
+        "{action} copy {filename} from usb on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "list": {
+      "allow": [],
+      "deny": [],
+      "get": [
+        "{action} usb files on {device}"
+      ]
+    }
+  },
+
+  "config_mgmt": {
+    "save": {
+      "allow": [
+        "{action} save configuration on {device}",
+        "{action} write memory on {device}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "export": {
+      "allow": [
+        "{action} export configuration from {device} to {destination}"
+      ],
+      "deny": [],
+      "get": []
+    },
+    "delete": {
+      "allow": [],
+      "deny": [
+        "{action} delete configuration file {filename} on {device}"
+      ],
+      "get": []
+    },
+    "get": {
+      "allow": [],
+      "deny": [],
+      "get": [
+        "{action} configuration files on {device}",
+        "{action} running configuration on {device}"
+      ]
+    }
+  }
+}
